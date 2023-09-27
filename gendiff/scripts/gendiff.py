@@ -54,7 +54,5 @@ def generate_diff(first_file, second_file):
 
 def main(first, second):
     generate_diff(first, second)
-
-
 if __name__ == '__main__':
     main(args.first_file, args.second_file)
