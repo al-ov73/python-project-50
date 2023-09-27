@@ -4,4 +4,4 @@ gen-diff:
 	gendiff file1.json file2.json
 
 run:
-	poetry run python -m gendiff.scripts.gendiff gendiff/json_files/file1.json gendiff/json_files/file2.json
+	poetry run python -m gendiff.scripts.gendiff tests/json_files/file1.json tests/json_files/file2.json
