@@ -5,15 +5,6 @@ __all__ = (
     'generate_diff',
 )
 
-parser = argparse.ArgumentParser(
-    description='Compares two configuration files and shows a difference.'
-)
-parser.add_argument('first_file', type=str, help='')
-parser.add_argument('second_file', type=str, help='')
-parser.add_argument('-f', '--format', type=str, help='set format of output')
-args = parser.parse_args()
-
-
 def dict_to_str(dict):
     result = ''
     for k, v in dict.items():
@@ -52,12 +43,17 @@ def generate_diff(first_file, second_file):
             new_k = f'+ {k}'
             result[new_k] = data2.get(k)
     bul_to_str(result)
-    print(dict_to_str(result))
+    return(dict_to_str(result))
 
 
-def main(first, second):
-    generate_diff(first, second)
+def main():
+    parser = argparse.ArgumentParser(description='Compares two configuration files and shows a difference.')
+    parser.add_argument('first_file', type=str, help='')
+    parser.add_argument('second_file', type=str, help='')
+    parser.add_argument('-f', '--format', type=str, help='set format of output')
+    args = parser.parse_args()
+    generate_diff(args.first_file, args.second_file)
 
 
 if __name__ == '__main__':
-    main(args.first_file, args.second_file)
+    main()
