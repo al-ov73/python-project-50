@@ -8,3 +8,6 @@ run:
 
 lint:
 	poetry run flake8 gendiff
+
+report:
+	./gradlew jacocoTestReport
