@@ -1,6 +1,9 @@
 import argparse
 import json
 
+__all__ = (
+    'generate_diff',
+)
 
 parser = argparse.ArgumentParser(
     description='Compares two configuration files and shows a difference.'
