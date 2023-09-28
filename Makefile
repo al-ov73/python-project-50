@@ -18,7 +18,7 @@ selfcheck:
 	poetry check
 
 test:
-	poetry run pytest
+	poetry run pytest -v
 
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
