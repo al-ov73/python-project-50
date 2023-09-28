@@ -9,5 +9,13 @@ run:
 lint:
 	poetry run flake8 gendiff
 
-report:
-	./gradlew jacocoTestReport
+install:
+	poetry install
+
+check: selfcheck test lint
+
+selfcheck:
+	poetry check
+
+test:
+	poetry run pytest
