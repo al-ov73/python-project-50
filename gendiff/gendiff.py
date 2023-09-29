@@ -1,28 +1,9 @@
-import json
-
-
-def dict_to_str(dict):
-    result = ''
-    for k, v in dict.items():
-        if not result:
-            result += f'{k}: {v}'
-        else:
-            result += f'\n {k}: {v}'
-    final = f'{{\n{result}\n}}'
-    return final
-
-
-def bul_to_str(dict):
-    result = {}
-    for k, v in dict.items():
-        if isinstance(v, bool):
-            dict[k] = str(v).lower()
-    return result
+from gendiff.auxiliary import bul_to_str, dict_to_str, data_from_file
 
 
 def generate_diff(first_file, second_file):
-    data1 = json.load(open(first_file))
-    data2 = json.load(open(second_file))
+    data1 = data_from_file(first_file)
+    data2 = data_from_file(second_file)
     result = {}
     for k in sorted(data1 | data2):
         if data1.get(k) == data2.get(k):

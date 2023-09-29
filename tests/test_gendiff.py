@@ -7,7 +7,7 @@ def test_generate_diff_json():
     assert print(generate_diff(x, y)) == print(expected)
 
 def test_generate_diff_jml():   
-    x = 'tests/fixtures/file1.jml'
-    y = 'tests/fixtures/file2.jml'
+    x = 'tests/fixtures/file1.yml'
+    y = 'tests/fixtures/file2.yml'
     expected = open('tests/fixtures/right.json')
     assert print(generate_diff(x, y)) == print(expected)

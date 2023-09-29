@@ -1,10 +1,18 @@
-gen-diff:
+gen-diff-json:
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl
 	gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
-run:
+gen-diff-yaml:
+	poetry build
+	python3 -m pip install --force-reinstall dist/*.whl
+	gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+
+run-json:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+
+run-yaml:
+	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
 
 lint:
 	poetry run flake8 gendiff
