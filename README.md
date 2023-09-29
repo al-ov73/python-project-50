@@ -13,3 +13,6 @@ gendiff path/to/file1 path/to/file2
 
 Сравнение плоских json-файлов
 <a href="https://asciinema.org/a/610652" target="_blank"><img src="https://asciinema.org/a/610652.svg" /></a>
+
+Сравнение плоских yml-файлов
+<a href="https://asciinema.org/a/611102" target="_blank"><img src="https://asciinema.org/a/611102.svg" /></a>
