@@ -1,5 +1,7 @@
 {
-    "timeout": 20,
+    "timeout": {
+      "new": "newone"
+    },
     "verbose": true,
     "host": "hexlet.io"
   }

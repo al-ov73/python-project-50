@@ -11,6 +11,10 @@ gen-diff-yaml:
 run-json:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
+run-json2:
+	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file3.json tests/fixtures/file4.json
+
+
 run-yaml:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
 

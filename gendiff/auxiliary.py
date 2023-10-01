@@ -14,11 +14,18 @@ def dict_to_str(dict):
     return final
 
 
-def bul_to_str(dict):
+def bul_to_str(data):
     result = {}
-    for k, v in dict.items():
+    for k, v in data.items():
         if isinstance(v, bool):
-            dict[k] = str(v).lower()
+            v_new = str(v).lower()
+            result[k] = v_new
+        elif v is None:
+            result[k] = 'null'
+        elif isinstance(v, dict):
+            result[k] = bul_to_str(v)
+        else:
+            result[k] = v
     return result
 
 
