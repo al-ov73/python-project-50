@@ -1,2 +1,2 @@
 from gendiff.gendiff import generate_diff
-from gendiff.formater import stylish
+from gendiff.formaters.stylish import stylish

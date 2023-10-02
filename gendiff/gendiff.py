@@ -1,9 +1,10 @@
 from gendiff.auxiliary import bul_to_str, data_from_file
+from gendiff.formaters import stylish, plain
 
 
-def generate_diff(first_file, second_file):
-    data1 = bul_to_str(data_from_file(first_file))
-    data2 = bul_to_str(data_from_file(second_file))
+def generate_diff(first_file, second_file, format_name):
+    data1 = bul_to_str(data_from_file(first_file))  # -> dict
+    data2 = bul_to_str(data_from_file(second_file))  # -> dict
 
     def generate_diff_dict(dict1, dict2):
         result = {}
@@ -25,4 +26,9 @@ def generate_diff(first_file, second_file):
                 else:
                     result[key] = ['changed', dict1[key], dict2[key]]
         return result
-    return generate_diff_dict(data1, data2)
+    # Промежуточный словарь
+    inter_dict = generate_diff_dict(data1, data2)
+    if format_name == 'stylish':
+        return stylish.stylish(inter_dict)
+    elif format_name == 'plain':
+        return plain.plain(inter_dict)

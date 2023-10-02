@@ -1,3 +1,6 @@
+run:
+	poetry run python -m gendiff.scripts.gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
+
 gen-diff-json:
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl
