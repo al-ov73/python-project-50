@@ -22,3 +22,6 @@ gendiff path/to/file1 path/to/file2
 
 Сравнение рекурсивных json-файлов (отображение plain)
 <a href="https://asciinema.org/a/611565" target="_blank"><img src="https://asciinema.org/a/611565.svg" /></a>
+
+Сравнение рекурсивных json-файлов (отображение json)
+<a href="https://asciinema.org/a/611637" target="_blank"><img src="https://asciinema.org/a/611637.svg" /></a>

@@ -1,15 +1,30 @@
-run:
-	poetry run python -m gendiff.scripts.gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
-
-gen-diff-json:
+gendiff-install:
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl
-	gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
-gen-diff-yaml:
-	poetry build
-	python3 -m pip install --force-reinstall dist/*.whl
-	gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+gendiff-stylish1:
+	gendiff -f stylish tests/fixtures/file1.json tests/fixtures/file2.json
+
+gendiff-stylish2:
+	gendiff -f stylish tests/fixtures/file3.json tests/fixtures/file4.json
+
+gendiff-yaml:
+	gendiff -f stylish tests/fixtures/file1.yml tests/fixtures/file2.yml
+
+gendiff-yaml2:
+	gendiff -f stylish tests/fixtures/file3.yml tests/fixtures/file4.yml
+
+gendiff-plain1:
+	gendiff -f plain tests/fixtures/file1.json tests/fixtures/file2.json
+
+gendiff-plain2:
+	gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
+
+gendiff-json1:
+	gendiff -f json tests/fixtures/file1.json tests/fixtures/file2.json
+
+gendiff-json2:
+	gendiff -f json tests/fixtures/file3.json tests/fixtures/file4.json
 
 run-json:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.json tests/fixtures/file2.json
@@ -17,6 +32,11 @@ run-json:
 run-json2:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file3.json tests/fixtures/file4.json
 
+run-json3:
+	poetry run python -m gendiff.scripts.gendiff -f json tests/fixtures/file3.json tests/fixtures/file4.json
+
+run-plain:
+	poetry run python -m gendiff.scripts.gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
 
 run-yaml:
 	poetry run python -m gendiff.scripts.gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
@@ -33,7 +53,7 @@ selfcheck:
 	poetry check
 
 test:
-	poetry run pytest -v
+	poetry run pytest -vv
 
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
