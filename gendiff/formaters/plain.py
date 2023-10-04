@@ -62,4 +62,4 @@ def format_to_plain(data, acc=''):
             n_v2 = add_quotes(to_complex_value(v[2]))
             result += f"Property '{acc}' was updated. From {n_v1} to {n_v2}\n"
             acc = current_acc
-    return del_empty_line(result, acc)
+    return del_empty_line(result, current_acc)
