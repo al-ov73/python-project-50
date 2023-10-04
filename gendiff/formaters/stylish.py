@@ -39,8 +39,8 @@ def make_change(k, v, result, replacer, spaces_count, depth):
         result += (
             f'{format_stylish(v[2], replacer, spaces_count, new_depth)}\n'
         )
-    elif (isinstance(v, list) and v[0] == 'changed' and
-            not isinstance(v[1], dict) and not isinstance(v[2], dict)):
+    elif (isinstance(v, list) and v[0] == 'changed'
+          and not isinstance(v[1], dict) and not isinstance(v[2], dict)):
         result += f'{replacer*(spaces_count*depth-2)}- {k}: {v[1]}\n'
         result += f'{replacer*(spaces_count*depth-2)}+ {k}: {v[2]}\n'
     return result
