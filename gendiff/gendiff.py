@@ -16,9 +16,9 @@ def generate_diff_dict(dict1, dict2):
             result[key] = ['deleted', dict1[key]]
         elif dict1[key] == dict2[key]:
             result[key] = ['unchanged', dict1[key]]
-        elif (dict1[key] != dict2[key] and
-              isinstance(dict1[key], dict) and
-              isinstance(dict2[key], dict)):
+        elif (dict1[key] != dict2[key]
+              and isinstance(dict1[key], dict)
+              and isinstance(dict2[key], dict)):
             # ключи равны, значения отличаются и они - словари
             children1 = dict1[key]
             children2 = dict2[key]

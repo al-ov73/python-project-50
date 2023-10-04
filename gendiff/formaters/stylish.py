@@ -65,8 +65,8 @@ def format_stylish(data, replacer=' ', spaces_count=4, depth=1):
             result += (
                 f'{format_stylish(v[1], replacer, spaces_count, new_depth)}\n'
             )
-        elif (isinstance(v, list) and
-                (v[0] == 'added' or v[0] == 'deleted' or v[0] == 'unchanged')):
+        elif (isinstance(v, list)
+              and (v[0] == 'added' or v[0] == 'deleted' or v[0] == 'unchanged')):
             result += (
                 f'{replacer*(spaces_count*depth_prev-2)}'
                 f'{make_symbol(v[0])}{k}: {v[1]}\n'
