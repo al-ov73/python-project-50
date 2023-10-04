@@ -8,10 +8,10 @@ gendiff-stylish1:
 gendiff-stylish2:
 	gendiff -f stylish tests/fixtures/file3.json tests/fixtures/file4.json
 
-gendiff-yaml:
+gendiff-yml:
 	gendiff -f stylish tests/fixtures/file1.yml tests/fixtures/file2.yml
 
-gendiff-yaml2:
+gendiff-yml2:
 	gendiff -f stylish tests/fixtures/file3.yml tests/fixtures/file4.yml
 
 gendiff-plain1:

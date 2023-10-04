@@ -29,7 +29,7 @@ def generate_diff_dict(dict1, dict2):
     return result
 
 
-def generate_diff(first_file, second_file, format_name):
+def generate_diff(first_file, second_file, format_name='stylish'):
     """
     Return dictionary, formated depends on 'format_name'
     format_name:'stylish'(default), 'plain', 'json'
