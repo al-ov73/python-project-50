@@ -1,4 +1,8 @@
 def add_quotes(item):
+    """
+    Add '' to input items, if it not in noneed_list
+    Output - string
+    """
     noneed_list = [
         'true', 'false', 'None', 'null', '[complex value]',
         'added', 'deleted', 'changed', 'unchanged'
@@ -10,6 +14,10 @@ def add_quotes(item):
 
 
 def to_complex_value(data):
+    """
+    Convert input dictionary to '[complex value]'
+    Other data doesn't convert
+    """
     if isinstance(data, dict):
         return '[complex value]'
     else:
@@ -17,6 +25,10 @@ def to_complex_value(data):
 
 
 def del_empty_line(text, acc):
+    """
+    Delete empty line in the end of input text file
+    Output - string
+    """
     if not acc:
         return text[:text.rfind('\n')]
     else:
@@ -24,6 +36,10 @@ def del_empty_line(text, acc):
 
 
 def format_to_plain(data, acc=''):
+    """
+    Format input dictionary to 'plain' style
+    Output - string
+    """
     result = ''
     current_acc = acc
     for k, v in data.items():

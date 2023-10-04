@@ -1,4 +1,8 @@
 def make_symbol(text):
+    """
+    Return symbol, depends on 'text'
+    Output - string
+    """
     if text == 'added':
         return '+ '
     if text == 'deleted':
@@ -8,12 +12,19 @@ def make_symbol(text):
 
 
 def add_bracket(result, replacer, spaces_count, depth_prev, acc):
+    """
+    Add '{' at the beginning of the input dictionary
+    Output - string
+    """
     if acc == 1:
         return f'{{\n{result}{replacer*(spaces_count*depth_prev-4)}}}'
     return f'{result}{replacer*(spaces_count*depth_prev-4)}}}'
 
 
 def make_change(k, v, result, replacer, spaces_count, depth):
+    """
+    костыль, чтобы снизить complexity основной функции 'format_stylish'
+    """
     if isinstance(v, list) and v[0] == 'changed' and isinstance(v[1], dict):
         result += f'{replacer*(spaces_count*depth-2)}- {k}: {{\n'
         new_depth = depth + 1
@@ -36,6 +47,10 @@ def make_change(k, v, result, replacer, spaces_count, depth):
 
 
 def format_stylish(data, replacer=' ', spaces_count=4, depth=1):
+    """
+    Format input dictionary to 'stylish' style
+    Output - string
+    """
     result = ''
     depth_prev = depth
     for k, v in data.items():

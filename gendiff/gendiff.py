@@ -3,6 +3,10 @@ from gendiff.formaters import stylish, plain, json
 
 
 def generate_diff_dict(dict1, dict2):
+    """
+    Return intermediary dictionary {key: ['added/deleted/...', value]}
+    Output - dictionary
+    """
     result = {}
     keys = dict1.keys() | dict2.keys()
     for key in sorted(keys):
@@ -26,6 +30,11 @@ def generate_diff_dict(dict1, dict2):
 
 
 def generate_diff(first_file, second_file, format_name):
+    """
+    Return dictionary, formated depends on 'format_name'
+    format_name:'stylish'(default), 'plain', 'json'
+    Output - dictionary
+    """
     data1 = bul_to_str(data_from_file(first_file))  # -> dict
     data2 = bul_to_str(data_from_file(second_file))  # -> dict
     # Промежуточный словарь
