@@ -1,3 +1,6 @@
+run:
+	poetry run python -m gendiff.scripts.gendiff -f stylish http://api.open-notify.org/astros.json http://api.open-notify.org/astros.json
+
 gendiff-install:
 	poetry build
 	python3 -m pip install --user --force-reinstall dist/*.whl
