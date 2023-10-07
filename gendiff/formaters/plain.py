@@ -1,3 +1,6 @@
+from gendiff.auxiliary import bul_to_str
+
+
 def add_quotes(item):
     """
     Add '' to input items, if it not in noneed_list
@@ -49,7 +52,7 @@ def format_to_plain(data, acc=''):
             result += format_to_plain(v[1], acc)
         elif v[0] == 'added':
             acc += f'{k}'
-            new_v = add_quotes(to_complex_value(v[1]))
+            new_v = add_quotes(bul_to_str(to_complex_value(v[1])))
             result += f"Property '{acc}' was added with value: {new_v}\n"
             acc = current_acc
         elif v[0] == 'deleted':
@@ -58,8 +61,8 @@ def format_to_plain(data, acc=''):
             acc = current_acc
         elif v[0] == 'changed':
             acc += f'{k}'
-            n_v1 = add_quotes(to_complex_value(v[1]))
-            n_v2 = add_quotes(to_complex_value(v[2]))
+            n_v1 = add_quotes(bul_to_str(to_complex_value(v[1])))
+            n_v2 = add_quotes(bul_to_str(to_complex_value(v[2])))
             result += f"Property '{acc}' was updated. From {n_v1} to {n_v2}\n"
             acc = current_acc
     return del_empty_line(result, current_acc)

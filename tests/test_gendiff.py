@@ -1,50 +1,44 @@
 from gendiff import generate_diff
+import pytest
 
 
-def test_generate_diff_json():
-    x = 'tests/fixtures/file1.json'
-    y = 'tests/fixtures/file2.json'
-    expected = open('tests/fixtures/right.json').read()
+test_cases_stylish = [
+    ('tests/fixtures/file1.json', 'tests/fixtures/file2.json',
+     'tests/fixtures/right.json'),
+    ('tests/fixtures/file1.yml', 'tests/fixtures/file2.yml',
+     'tests/fixtures/right.json'),
+    ('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml',
+     'tests/fixtures/right.json'),
+    ('tests/fixtures/file3.json', 'tests/fixtures/file4.json',
+     'tests/fixtures/right_2.json'),
+    ('tests/fixtures/file3.yml', 'tests/fixtures/file4.yml',
+     'tests/fixtures/right_2.json'),
+]
+
+test_cases_plain = [
+    ('tests/fixtures/file3.json', 'tests/fixtures/file4.json',
+     'tests/fixtures/right_plain.json'),
+]
+
+test_cases_json = [
+    ('tests/fixtures/file3.json', 'tests/fixtures/file4.json',
+     'tests/fixtures/right_json.json'),
+]
+
+
+@pytest.mark.parametrize('x, y, out', test_cases_stylish)
+def test_generate_diff_stylish(x, y, out):
+    expected = open(out).read()
     assert generate_diff(x, y, 'stylish') == expected
 
 
-def test_generate_diff_jml():
-    x = 'tests/fixtures/file1.yml'
-    y = 'tests/fixtures/file2.yml'
-    expected = open('tests/fixtures/right.json').read()
-    assert generate_diff(x, y, 'stylish') == expected
-
-
-def test_generate_diff_jaml():
-    x = 'tests/fixtures/file1.yaml'
-    y = 'tests/fixtures/file2.yaml'
-    expected = open('tests/fixtures/right.json').read()
-    assert generate_diff(x, y, 'stylish') == expected
-
-
-def test_generate_diff_jml_2():
-    x = 'tests/fixtures/file3.yml'
-    y = 'tests/fixtures/file4.yml'
-    expected = open('tests/fixtures/right_2.json').read()
-    assert generate_diff(x, y, 'stylish') == expected
-
-
-def test_generate_diff_json_2():
-    x = 'tests/fixtures/file3.json'
-    y = 'tests/fixtures/file4.json'
-    expected = open('tests/fixtures/right_2.json').read()
-    assert generate_diff(x, y, 'stylish') == expected
-
-
-def test_generate_diff_json_plain():
-    x = 'tests/fixtures/file3.json'
-    y = 'tests/fixtures/file4.json'
-    expected = open('tests/fixtures/right_plain.json').read()
+@pytest.mark.parametrize('x, y, out', test_cases_plain)
+def test_generate_diff_plain(x, y, out):
+    expected = open(out).read()
     assert generate_diff(x, y, 'plain') == expected
 
 
-def test_generate_diff_json_json():
-    x = 'tests/fixtures/file3.json'
-    y = 'tests/fixtures/file4.json'
-    expected = open('tests/fixtures/right_json.json').read()
+@pytest.mark.parametrize('x, y, out', test_cases_json)
+def test_generate_diff_json(x, y, out):
+    expected = open(out).read()
     assert generate_diff(x, y, 'json') == expected
