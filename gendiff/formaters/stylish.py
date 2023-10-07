@@ -78,8 +78,7 @@ def format_stylish(data, replacer=' ', spaces_count=4, depth=1):
             )
         elif (isinstance(v, list)
               and (
-                  v[0] == 'added' or v[0] == 'deleted' or v[0] == 'unchanged'
-              )):
+                  v[0] == 'added' or v[0] == 'deleted' or v[0] == 'unchanged')):
             result += (
                 f'{replacer*(spaces_count*depth_prev-2)}'
                 f'{make_symbol(v[0])}{k}: {bul_to_str(v[1])}\n'
